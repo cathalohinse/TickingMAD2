@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TickingMAD">
         <activity
-            android:name=".MainActivity"
+            android:name=".TickingmadActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
