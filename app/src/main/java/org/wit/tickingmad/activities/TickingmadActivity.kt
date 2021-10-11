@@ -36,12 +36,15 @@ class TickingmadActivity : AppCompatActivity() {
                 //tickingmads.add(tickingmad.copy())
                 //i("add Button Pressed: $tickingmad.title")
                 i("add Button Pressed: ${tickingmad}")
-                for (i in app.tickingmads.indices)
+                for (i in app.tickingmads.indices) {
+                    i("Tickingmad[$i]:${this.app.tickingmads[i]}")
+                }
                 //for (i in app!!.tickingmads.indices)  //incorporating null safety
                 //for (i in tickingmads.indices)
-                {i("Tickingmad[$i]:${this.app.tickingmads[i]}")}
                 //{i("Tickingmad[$i]:${this.app!!.tickingmads[i]}")}  //incorporating null safety
                 //{i("Tickingmad[$i];${this.tickingmads[i]}")}
+                setResult(RESULT_OK)
+                finish()
             }
             else {
                 Snackbar

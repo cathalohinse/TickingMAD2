@@ -13,5 +13,8 @@ class MainApp : Application() {
         super.onCreate()
         Timber.plant(Timber.DebugTree())
         i("Tickingmad started")
+        //tickingmads.add(TickingmadModel("One", "About one..."))
+        //tickingmads.add(TickingmadModel("Two", "About two..."))
+        //tickingmads.add(TickingmadModel("Three", "About three..."))
     }
 }

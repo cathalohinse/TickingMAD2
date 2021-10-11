@@ -2,5 +2,6 @@
     <string name="app_name">TickingMAD</string>
     <string name="button_addTick">Add Tick</string>
     <string name="hint_tickTitle">Tick Title</string>
-    <string name="hint_tickDescription">Description </string>
+    <string name="hint_tickDescription">Description</string>
+    <string name="menu_addTick">Add</string>
 </resources>
