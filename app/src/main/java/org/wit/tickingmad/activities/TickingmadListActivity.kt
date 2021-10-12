@@ -11,8 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.wit.tickingmad.R
 import org.wit.tickingmad.databinding.ActivityTickingmadListBinding
-import org.wit.tickingmad.databinding.CardPlacemarkBinding
-//import org.wit.tickingmad.databinding.CardTickingmadBinding
+import org.wit.tickingmad.databinding.CardTickingmadBinding
 import org.wit.tickingmad.main.MainApp
 import org.wit.tickingmad.models.TickingmadModel
 
@@ -56,8 +55,7 @@ class TickingmadAdapter constructor(private var tickingmads: List<TickingmadMode
     RecyclerView.Adapter<TickingmadAdapter.MainHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
-        //val binding = CardTickingmadBinding
-        val binding = CardPlacemarkBinding
+        val binding = CardTickingmadBinding
             .inflate(LayoutInflater.from(parent.context), parent, false)
 
         return MainHolder(binding)
@@ -70,8 +68,7 @@ class TickingmadAdapter constructor(private var tickingmads: List<TickingmadMode
 
     override fun getItemCount(): Int = tickingmads.size
 
-    //class MainHolder(private val binding : CardTickingmadBinding) :
-    class MainHolder(private val binding : CardPlacemarkBinding) :
+    class MainHolder(private val binding : CardTickingmadBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(tickingmad: TickingmadModel) {

@@ -4,4 +4,5 @@
     <string name="hint_tickTitle">Tick Title</string>
     <string name="hint_tickDescription">Description</string>
     <string name="menu_addTick">Add</string>
+    <string name="menu_cancelTick">Cancel</string>
 </resources>

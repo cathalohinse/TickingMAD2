@@ -2,7 +2,10 @@ package org.wit.tickingmad.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import com.google.android.material.snackbar.Snackbar
+import org.wit.tickingmad.R
 import org.wit.tickingmad.databinding.ActivityTickingmadBinding
 import org.wit.tickingmad.main.MainApp
 import org.wit.tickingmad.models.TickingmadModel
@@ -22,6 +25,9 @@ class TickingmadActivity : AppCompatActivity() {
 
         binding = ActivityTickingmadBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.toolbarAdd.title = title
+        setSupportActionBar(binding.toolbarAdd)
 
         //Timber.plant(Timber.DebugTree())
         app = application as MainApp
@@ -53,4 +59,19 @@ class TickingmadActivity : AppCompatActivity() {
             }
         }
     }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_tickingmad, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.item_cancel -> {
+                finish()
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 }
