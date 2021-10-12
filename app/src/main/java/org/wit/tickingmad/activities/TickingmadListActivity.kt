@@ -3,17 +3,18 @@ package org.wit.tickingmad.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
+//import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
-import android.view.ViewGroup
+//import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+//import androidx.recyclerview.widget.RecyclerView
 import org.wit.tickingmad.R
 import org.wit.tickingmad.databinding.ActivityTickingmadListBinding
-import org.wit.tickingmad.databinding.CardTickingmadBinding
+//import org.wit.tickingmad.databinding.CardTickingmadBinding
 import org.wit.tickingmad.main.MainApp
-import org.wit.tickingmad.models.TickingmadModel
+//import org.wit.tickingmad.models.TickingmadModel
+import org.wit.tickingmad.adapters.TickingmadAdapter
 
 class TickingmadListActivity : AppCompatActivity() {
 
@@ -51,29 +52,3 @@ class TickingmadListActivity : AppCompatActivity() {
 
 }
 
-class TickingmadAdapter constructor(private var tickingmads: List<TickingmadModel>) :
-    RecyclerView.Adapter<TickingmadAdapter.MainHolder>() {
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
-        val binding = CardTickingmadBinding
-            .inflate(LayoutInflater.from(parent.context), parent, false)
-
-        return MainHolder(binding)
-    }
-
-    override fun onBindViewHolder(holder: MainHolder, position: Int) {
-        val tickingmad = tickingmads[holder.adapterPosition]
-        holder.bind(tickingmad)
-    }
-
-    override fun getItemCount(): Int = tickingmads.size
-
-    class MainHolder(private val binding : CardTickingmadBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-
-        fun bind(tickingmad: TickingmadModel) {
-            binding.tickTitle.text = tickingmad.title
-            binding.tickDescription.text = tickingmad.description
-        }
-    }
-}
