@@ -15,8 +15,10 @@ import org.wit.tickingmad.databinding.ActivityTickingmadListBinding
 import org.wit.tickingmad.main.MainApp
 //import org.wit.tickingmad.models.TickingmadModel
 import org.wit.tickingmad.adapters.TickingmadAdapter
+import org.wit.tickingmad.adapters.TickingmadListener
+import org.wit.tickingmad.models.TickingmadModel
 
-class TickingmadListActivity : AppCompatActivity() {
+class TickingmadListActivity : AppCompatActivity(), TickingmadListener {
 
     lateinit var app: MainApp
     private lateinit var binding: ActivityTickingmadListBinding
@@ -32,7 +34,8 @@ class TickingmadListActivity : AppCompatActivity() {
 
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
-        binding.recyclerView.adapter = TickingmadAdapter(app.tickingmads)
+        //binding.recyclerView.adapter = TickingmadAdapter(app.tickingmads)
+        binding.recyclerView.adapter = TickingmadAdapter(app.tickingmads.findAll(), this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -48,6 +51,12 @@ class TickingmadListActivity : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onTickingmadClick(tickingmad: TickingmadModel) {
+        val launcherIntent = Intent(this, TickingmadActivity::class.java)
+        launcherIntent.putExtra("tick_edit", tickingmad)
+        startActivityForResult(launcherIntent,0)
     }
 
 }

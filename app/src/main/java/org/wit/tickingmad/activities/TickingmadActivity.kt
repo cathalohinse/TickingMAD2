@@ -33,28 +33,22 @@ class TickingmadActivity : AppCompatActivity() {
         app = application as MainApp
         i("Tickingmad Activity started...")
 
+        if (intent.hasExtra("tick_edit")) {
+            tickingmad = intent.extras?.getParcelable("tick_edit")!!
+            binding.tickTitle.setText(tickingmad.title)
+            binding.tickDescription.setText(tickingmad.description)
+        }
+
         binding.btnAdd.setOnClickListener() {
             tickingmad.title = binding.tickTitle.text.toString()
             tickingmad.description = binding.tickDescription.text.toString()
             if (tickingmad.title.isNotEmpty()) {
-                app.tickingmads.add(tickingmad.copy())
-                //app!!.tickingmads.add(tickingmad.copy()) //incorporating null safety
-                //tickingmads.add(tickingmad.copy())
-                //i("add Button Pressed: $tickingmad.title")
-                i("add Button Pressed: ${tickingmad}")
-                for (i in app.tickingmads.indices) {
-                    i("Tickingmad[$i]:${this.app.tickingmads[i]}")
-                }
-                //for (i in app!!.tickingmads.indices)  //incorporating null safety
-                //for (i in tickingmads.indices)
-                //{i("Tickingmad[$i]:${this.app!!.tickingmads[i]}")}  //incorporating null safety
-                //{i("Tickingmad[$i];${this.tickingmads[i]}")}
+                app.tickingmads.create(tickingmad.copy())
                 setResult(RESULT_OK)
                 finish()
             }
             else {
-                Snackbar
-                    .make(it,"Please Enter a title", Snackbar.LENGTH_LONG)
+                Snackbar.make(it,"Please Enter a title", Snackbar.LENGTH_LONG)
                     .show()
             }
         }

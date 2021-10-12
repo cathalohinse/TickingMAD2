@@ -1,3 +1,7 @@
 package org.wit.tickingmad.models
 
-data class TickingmadModel(var title: String = "", var description: String = "")
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
+data class TickingmadModel(var title: String = "", var description: String = "") : Parcelable
