@@ -8,4 +8,5 @@
     <string name="enter_tickTitle"> Please enter a Tick Title </string>
     <string name="save_tick"> Save Tick </string>
     <string name="button_addImage"> Add Image </string>
+    <string name="select_tickImage">Select placemark image</string>
 </resources>

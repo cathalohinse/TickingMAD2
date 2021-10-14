@@ -1,12 +1,16 @@
 package org.wit.tickingmad.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.material.snackbar.Snackbar
 import org.wit.tickingmad.R
 import org.wit.tickingmad.databinding.ActivityTickingmadBinding
+import org.wit.tickingmad.helpers.showImagePicker
 import org.wit.tickingmad.main.MainApp
 import org.wit.tickingmad.models.TickingmadModel
 import timber.log.Timber
@@ -14,10 +18,12 @@ import timber.log.Timber.i
 
 class TickingmadActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTickingmadBinding
+    private lateinit var imageIntentLauncher : ActivityResultLauncher<Intent>
     var tickingmad = TickingmadModel()
     lateinit var app: MainApp
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        registerImagePickerCallback()
         super.onCreate(savedInstanceState)
         var edit = false
         binding = ActivityTickingmadBinding.inflate(layoutInflater)
@@ -51,8 +57,12 @@ class TickingmadActivity : AppCompatActivity() {
             finish()
         }
 
-        binding.chooseImage.setOnClickListener {
+        /*binding.chooseImage.setOnClickListener {
             i("Select image")
+        }*/
+
+        binding.chooseImage.setOnClickListener {
+            showImagePicker(imageIntentLauncher)
         }
     }
 
@@ -66,5 +76,20 @@ class TickingmadActivity : AppCompatActivity() {
             R.id.item_cancel -> { finish() }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun registerImagePickerCallback() {
+        imageIntentLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult())
+            { result ->
+                when(result.resultCode){
+                    RESULT_OK -> {
+                        if (result.data != null) {
+                            i("Got Result ${result.data!!.data}")
+                        } // end of if
+                    }
+                    RESULT_CANCELED -> { } else -> { }
+                }
+            }
     }
 }
