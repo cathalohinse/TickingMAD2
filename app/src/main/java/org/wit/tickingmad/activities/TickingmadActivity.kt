@@ -8,6 +8,7 @@ import android.view.MenuItem
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.material.snackbar.Snackbar
+import com.squareup.picasso.Picasso
 import org.wit.tickingmad.R
 import org.wit.tickingmad.databinding.ActivityTickingmadBinding
 import org.wit.tickingmad.helpers.showImagePicker
@@ -38,6 +39,9 @@ class TickingmadActivity : AppCompatActivity() {
             binding.tickTitle.setText(tickingmad.title)
             binding.tickDescription.setText(tickingmad.description)
             binding.btnAdd.setText(R.string.save_tick)
+            Picasso.get()
+                .load(tickingmad.image)
+                .into(binding.tickImage)
         }
 
         binding.btnAdd.setOnClickListener() {
@@ -86,6 +90,10 @@ class TickingmadActivity : AppCompatActivity() {
                     RESULT_OK -> {
                         if (result.data != null) {
                             i("Got Result ${result.data!!.data}")
+                            tickingmad.image = result.data!!.data!!
+                            Picasso.get()
+                                .load(tickingmad.image)
+                                .into(binding.tickImage)
                         } // end of if
                     }
                     RESULT_CANCELED -> { } else -> { }
