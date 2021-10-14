@@ -37,6 +37,7 @@ class TickingmadActivity : AppCompatActivity() {
             tickingmad = intent.extras?.getParcelable("tick_edit")!!
             binding.tickTitle.setText(tickingmad.title)
             binding.tickDescription.setText(tickingmad.description)
+            binding.btnAdd.setText(R.string.save_tick)
         }
 
         binding.btnAdd.setOnClickListener() {
@@ -48,7 +49,8 @@ class TickingmadActivity : AppCompatActivity() {
                 finish()
             }
             else {
-                Snackbar.make(it,"Please Enter a title", Snackbar.LENGTH_LONG)
+                Snackbar
+                    .make(it,R.string.enter_tickTitle, Snackbar.LENGTH_LONG)
                     .show()
             }
         }
