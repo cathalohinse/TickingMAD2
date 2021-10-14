@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">TickingMAD</string>
+    <string name="button_addTick">Add Tick</string>
+    <string name="hint_tickTitle">Tick Title</string>
+    <string name="hint_tickDescription">Description</string>
+    <string name="menu_addTick">Add</string>
+    <string name="menu_cancelTick">Cancel</string>
+    <string name="enter_tickTitle"> Please enter a Tick Title </string>
+    <string name="save_tick"> Save Tick </string>
 </resources>
