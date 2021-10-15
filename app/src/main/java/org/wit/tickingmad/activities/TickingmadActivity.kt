@@ -1,6 +1,7 @@
 package org.wit.tickingmad.activities
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -42,6 +43,9 @@ class TickingmadActivity : AppCompatActivity() {
             Picasso.get()
                 .load(tickingmad.image)
                 .into(binding.tickImage)
+            if (tickingmad.image != Uri.EMPTY) {
+                binding.chooseImage.setText(R.string.changeImage)
+            }
         }
 
         binding.btnAdd.setOnClickListener() {
@@ -94,6 +98,7 @@ class TickingmadActivity : AppCompatActivity() {
                             Picasso.get()
                                 .load(tickingmad.image)
                                 .into(binding.tickImage)
+                            binding.chooseImage.setText(R.string.changeImage)
                         } // end of if
                     }
                     RESULT_CANCELED -> { } else -> { }
