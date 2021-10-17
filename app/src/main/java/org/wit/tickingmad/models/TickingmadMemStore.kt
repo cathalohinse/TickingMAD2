@@ -27,6 +27,7 @@ class TickingmadMemStore : TickingmadStore {
         if (foundTickingmad != null) {
             foundTickingmad.title = tickingmad.title
             foundTickingmad.description = tickingmad.description
+            foundTickingmad.image = tickingmad.image
             logAll()
         }
     }
