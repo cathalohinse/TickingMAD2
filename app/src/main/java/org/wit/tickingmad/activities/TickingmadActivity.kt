@@ -72,6 +72,10 @@ class TickingmadActivity : AppCompatActivity() {
         binding.chooseImage.setOnClickListener {
             showImagePicker(imageIntentLauncher)
         }
+
+        binding.tickLocation.setOnClickListener {
+            i ("Set Location Pressed")
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
