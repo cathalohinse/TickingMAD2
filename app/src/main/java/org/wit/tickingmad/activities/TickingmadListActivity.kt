@@ -3,19 +3,14 @@ package org.wit.tickingmad.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-//import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-//import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-//import androidx.recyclerview.widget.RecyclerView
 import org.wit.tickingmad.R
 import org.wit.tickingmad.databinding.ActivityTickingmadListBinding
-//import org.wit.tickingmad.databinding.CardTickingmadBinding
 import org.wit.tickingmad.main.MainApp
-//import org.wit.tickingmad.models.TickingmadModel
 import org.wit.tickingmad.adapters.TickingmadAdapter
 import org.wit.tickingmad.adapters.TickingmadListener
 import org.wit.tickingmad.models.TickingmadModel
@@ -37,7 +32,6 @@ class TickingmadListActivity : AppCompatActivity(), TickingmadListener {
 
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
-        //binding.recyclerView.adapter = TickingmadAdapter(app.tickingmads)
         binding.recyclerView.adapter = TickingmadAdapter(app.tickingmads.findAll(), this)
         registerRefreshCallback()
     }
