@@ -21,6 +21,7 @@ import timber.log.Timber.i
 class TickingmadActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTickingmadBinding
     private lateinit var imageIntentLauncher : ActivityResultLauncher<Intent>
+    private lateinit var mapIntentLauncher : ActivityResultLauncher<Intent>
     var tickingmad = TickingmadModel()
     lateinit var app: MainApp
 
@@ -74,8 +75,12 @@ class TickingmadActivity : AppCompatActivity() {
         }
 
         binding.tickLocation.setOnClickListener {
-            i ("Set Location Pressed")
+            val launcherIntent = Intent(this, MapActivity::class.java)
+            mapIntentLauncher.launch(launcherIntent)
         }
+
+        registerMapCallback()
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -108,5 +113,11 @@ class TickingmadActivity : AppCompatActivity() {
                     RESULT_CANCELED -> { } else -> { }
                 }
             }
+    }
+
+    private fun registerMapCallback() {
+        mapIntentLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult())
+            { i("Map Loaded") }
     }
 }
