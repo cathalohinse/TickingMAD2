@@ -14,6 +14,7 @@ import org.wit.tickingmad.R
 import org.wit.tickingmad.databinding.ActivityTickingmadBinding
 import org.wit.tickingmad.helpers.showImagePicker
 import org.wit.tickingmad.main.MainApp
+import org.wit.tickingmad.models.Location
 import org.wit.tickingmad.models.TickingmadModel
 import timber.log.Timber
 import timber.log.Timber.i
@@ -75,7 +76,9 @@ class TickingmadActivity : AppCompatActivity() {
         }
 
         binding.tickLocation.setOnClickListener {
+            val location = Location(52.245696, -7.139102, 15f)
             val launcherIntent = Intent(this, MapActivity::class.java)
+                .putExtra("location", location)
             mapIntentLauncher.launch(launcherIntent)
         }
 
