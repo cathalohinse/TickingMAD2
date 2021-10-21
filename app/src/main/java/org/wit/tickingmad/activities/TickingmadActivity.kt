@@ -25,7 +25,7 @@ class TickingmadActivity : AppCompatActivity() {
     private lateinit var mapIntentLauncher : ActivityResultLauncher<Intent>
     var tickingmad = TickingmadModel()
     lateinit var app: MainApp
-    var location = Location(52.245696, -7.139102, 15f)
+    //var location = Location(52.245696, -7.139102, 15f)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         registerImagePickerCallback()
@@ -77,6 +77,12 @@ class TickingmadActivity : AppCompatActivity() {
         }
 
         binding.tickLocation.setOnClickListener {
+            val location = Location(52.245696, -7.139102, 15f)
+            if (tickingmad.zoom != 0f) {
+                location.lat =  tickingmad.lat
+                location.lng = tickingmad.lng
+                location.zoom = tickingmad.zoom
+            }
             val launcherIntent = Intent(this, MapActivity::class.java)
                 .putExtra("location", location)
             mapIntentLauncher.launch(launcherIntent)
@@ -126,8 +132,11 @@ class TickingmadActivity : AppCompatActivity() {
                     RESULT_OK -> {
                         if (result.data != null) {
                             i("Got Location ${result.data.toString()}")
-                            location = result.data!!.extras?.getParcelable("location")!!
+                            val location = result.data!!.extras?.getParcelable<Location>("location")!!
                             i("Location == $location")
+                            tickingmad.lat = location.lat
+                            tickingmad.lng = location.lng
+                            tickingmad.zoom = location.zoom
                         } // end of if
                     }
                     RESULT_CANCELED -> { } else -> { }
