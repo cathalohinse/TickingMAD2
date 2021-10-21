@@ -3,17 +3,14 @@ package org.wit.tickingmad.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-//import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
-//import android.view.ViewGroup
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
-//import androidx.recyclerview.widget.RecyclerView
 import org.wit.tickingmad.R
 import org.wit.tickingmad.databinding.ActivityTickingmadListBinding
-//import org.wit.tickingmad.databinding.CardTickingmadBinding
 import org.wit.tickingmad.main.MainApp
-//import org.wit.tickingmad.models.TickingmadModel
 import org.wit.tickingmad.adapters.TickingmadAdapter
 import org.wit.tickingmad.adapters.TickingmadListener
 import org.wit.tickingmad.models.TickingmadModel
@@ -22,6 +19,7 @@ class TickingmadListActivity : AppCompatActivity(), TickingmadListener {
 
     lateinit var app: MainApp
     private lateinit var binding: ActivityTickingmadListBinding
+    private lateinit var refreshIntentLauncher : ActivityResultLauncher<Intent>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,8 +32,8 @@ class TickingmadListActivity : AppCompatActivity(), TickingmadListener {
 
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
-        //binding.recyclerView.adapter = TickingmadAdapter(app.tickingmads)
         binding.recyclerView.adapter = TickingmadAdapter(app.tickingmads.findAll(), this)
+        registerRefreshCallback()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -47,7 +45,7 @@ class TickingmadListActivity : AppCompatActivity(), TickingmadListener {
         when (item.itemId) {
             R.id.item_add -> {
                 val launcherIntent = Intent(this, TickingmadActivity::class.java)
-                startActivityForResult(launcherIntent,0)
+                refreshIntentLauncher.launch(launcherIntent)
             }
         }
         return super.onOptionsItemSelected(item)
@@ -56,12 +54,14 @@ class TickingmadListActivity : AppCompatActivity(), TickingmadListener {
     override fun onTickingmadClick(tickingmad: TickingmadModel) {
         val launcherIntent = Intent(this, TickingmadActivity::class.java)
         launcherIntent.putExtra("tick_edit", tickingmad)
-        startActivityForResult(launcherIntent,0)
+        refreshIntentLauncher.launch(launcherIntent)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        binding.recyclerView.adapter?.notifyDataSetChanged()
-        super.onActivityResult(requestCode, resultCode, data)
+
+    private fun registerRefreshCallback() {
+        refreshIntentLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult())
+            { binding.recyclerView.adapter?.notifyDataSetChanged() }
     }
 
 }

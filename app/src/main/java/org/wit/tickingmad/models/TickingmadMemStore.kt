@@ -23,10 +23,14 @@ class TickingmadMemStore : TickingmadStore {
     }
 
     override fun update(tickingmad: TickingmadModel) {
-        var foundTickingmad: TickingmadModel? = tickingmads.find { p -> p.id == tickingmad.id }
+        val foundTickingmad: TickingmadModel? = tickingmads.find { p -> p.id == tickingmad.id }
         if (foundTickingmad != null) {
             foundTickingmad.title = tickingmad.title
             foundTickingmad.description = tickingmad.description
+            foundTickingmad.image = tickingmad.image
+            foundTickingmad.lat = tickingmad.lat
+            foundTickingmad.lng = tickingmad.lng
+            foundTickingmad.zoom = tickingmad.zoom
             logAll()
         }
     }
