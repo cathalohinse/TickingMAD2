@@ -14,6 +14,7 @@ import org.wit.tickingmad.R
 import org.wit.tickingmad.databinding.ActivityTickingmadBinding
 import org.wit.tickingmad.helpers.showImagePicker
 import org.wit.tickingmad.main.MainApp
+import org.wit.tickingmad.models.Location
 import org.wit.tickingmad.models.TickingmadModel
 import timber.log.Timber
 import timber.log.Timber.i
@@ -21,8 +22,10 @@ import timber.log.Timber.i
 class TickingmadActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTickingmadBinding
     private lateinit var imageIntentLauncher : ActivityResultLauncher<Intent>
+    private lateinit var mapIntentLauncher : ActivityResultLauncher<Intent>
     var tickingmad = TickingmadModel()
     lateinit var app: MainApp
+    //var location = Location(52.245696, -7.139102, 15f)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         registerImagePickerCallback()
@@ -72,6 +75,21 @@ class TickingmadActivity : AppCompatActivity() {
         binding.chooseImage.setOnClickListener {
             showImagePicker(imageIntentLauncher)
         }
+
+        binding.tickLocation.setOnClickListener {
+            val location = Location(52.245696, -7.139102, 15f)
+            if (tickingmad.zoom != 0f) {
+                location.lat =  tickingmad.lat
+                location.lng = tickingmad.lng
+                location.zoom = tickingmad.zoom
+            }
+            val launcherIntent = Intent(this, MapActivity::class.java)
+                .putExtra("location", location)
+            mapIntentLauncher.launch(launcherIntent)
+        }
+
+        registerMapCallback()
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -99,6 +117,26 @@ class TickingmadActivity : AppCompatActivity() {
                                 .load(tickingmad.image)
                                 .into(binding.tickImage)
                             binding.chooseImage.setText(R.string.changeImage)
+                        } // end of if
+                    }
+                    RESULT_CANCELED -> { } else -> { }
+                }
+            }
+    }
+
+    private fun registerMapCallback() {
+        mapIntentLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult())
+            { result ->
+                when (result.resultCode) {
+                    RESULT_OK -> {
+                        if (result.data != null) {
+                            i("Got Location ${result.data.toString()}")
+                            val location = result.data!!.extras?.getParcelable<Location>("location")!!
+                            i("Location == $location")
+                            tickingmad.lat = location.lat
+                            tickingmad.lng = location.lng
+                            tickingmad.zoom = location.zoom
                         } // end of if
                     }
                     RESULT_CANCELED -> { } else -> { }
