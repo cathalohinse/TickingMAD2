@@ -12,4 +12,5 @@
     <string name="changeImage">Change Image</string>
     <string name="button_tickLocation">Set Location</string>
     <string name="title_activity_map">MapActivity</string>
+    <string name="button_deleteTick"> Delete Tick </string>
 </resources>

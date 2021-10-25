@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.material.snackbar.Snackbar
@@ -43,6 +44,7 @@ class TickingmadActivity : AppCompatActivity() {
             binding.tickTitle.setText(tickingmad.title)
             binding.tickDescription.setText(tickingmad.description)
             binding.btnAdd.setText(R.string.save_tick)
+            binding.btnDelete.setVisibility(View.VISIBLE)
             Picasso.get()
                 .load(tickingmad.image)
                 .into(binding.tickImage)
@@ -86,6 +88,13 @@ class TickingmadActivity : AppCompatActivity() {
             val launcherIntent = Intent(this, MapActivity::class.java)
                 .putExtra("location", location)
             mapIntentLauncher.launch(launcherIntent)
+        }
+
+        binding.btnDelete.setOnClickListener() {
+            app.tickingmads.delete(tickingmad)
+
+            setResult(RESULT_OK)
+            finish()
         }
 
         registerMapCallback()
