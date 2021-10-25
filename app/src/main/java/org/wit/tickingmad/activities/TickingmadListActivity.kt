@@ -32,8 +32,9 @@ class TickingmadListActivity : AppCompatActivity(), TickingmadListener {
 
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
-        loadTickingmads()
 
+        //binding.recyclerView.adapter = TickingmadAdapter(app.tickingmads.findAll(), this)
+        loadTickingmads()
         registerRefreshCallback()
     }
 
@@ -62,11 +63,17 @@ class TickingmadListActivity : AppCompatActivity(), TickingmadListener {
     private fun registerRefreshCallback() {
         refreshIntentLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult())
-            { loadTickingmads() }
+            //{ binding.recyclerView.adapter?.notifyDataSetChanged() }
+            {loadTickingmads()}
     }
 
     private fun loadTickingmads() {
         showTickingmads(app.tickingmads.findAll())
+    }
+
+    fun showTickingmads (tickingmads: List<TickingmadModel>) {
+        binding.recyclerView.adapter = TickingmadAdapter(tickingmads,this)
+        binding.recyclerView.adapter?.notifyDataSetChanged()
     }
 
     fun showTickingmads (tickingmads: List<TickingmadModel>) {
