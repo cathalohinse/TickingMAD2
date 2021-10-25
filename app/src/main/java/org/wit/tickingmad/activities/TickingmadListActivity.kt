@@ -76,9 +76,6 @@ class TickingmadListActivity : AppCompatActivity(), TickingmadListener {
         binding.recyclerView.adapter?.notifyDataSetChanged()
     }
 
-    fun showTickingmads (tickingmads: List<TickingmadModel>) {
-        binding.recyclerView.adapter = TickingmadAdapter(tickingmads, this)
-        binding.recyclerView.adapter?.notifyDataSetChanged()
-    }
+
 }
 
