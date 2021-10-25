@@ -18,6 +18,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TickingMAD">
 
+        <activity
+            android:name=".activities.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.TickingMAD">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -43,7 +54,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.TickingmadActivity"></activity>
+        <activity android:name=".activities.TickingmadActivity"/>
+
+
+
     </application>
 
 </manifest>
