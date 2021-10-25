@@ -32,6 +32,7 @@ class TickingmadMemStore : TickingmadStore {
             foundTickingmad.lng = tickingmad.lng
             foundTickingmad.zoom = tickingmad.zoom
             logAll()
+
         }
     }
 
