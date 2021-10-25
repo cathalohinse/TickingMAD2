@@ -1,8 +1,10 @@
 package org.wit.tickingmad.main
 
 import android.app.Application
+import org.wit.tickingmad.models.TickingmadJSONStore
 import org.wit.tickingmad.models.TickingmadMemStore
 import org.wit.tickingmad.models.TickingmadStore
+
 import org.wit.tickingmad.models.TickingmadJSONStore
 //import org.wit.tickingmad.models.TickingmadModel
 import timber.log.Timber
