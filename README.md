@@ -1,4 +1,4 @@
-# TickingMAD
+# TickingMAD2
 Mobile App Development Assignment 2
 
 ### Table of contents
