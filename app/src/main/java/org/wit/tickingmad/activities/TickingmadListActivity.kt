@@ -20,6 +20,7 @@ class TickingmadListActivity : AppCompatActivity(), TickingmadListener {
     lateinit var app: MainApp
     private lateinit var binding: ActivityTickingmadListBinding
     private lateinit var refreshIntentLauncher : ActivityResultLauncher<Intent>
+    private lateinit var mapIntentLauncher : ActivityResultLauncher<Intent>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +37,13 @@ class TickingmadListActivity : AppCompatActivity(), TickingmadListener {
         //binding.recyclerView.adapter = TickingmadAdapter(app.tickingmads.findAll(), this)
         loadTickingmads()
         registerRefreshCallback()
+        registerMapCallback()
+    }
+
+    private fun registerMapCallback() {
+        mapIntentLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult())
+            { }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -48,6 +56,10 @@ class TickingmadListActivity : AppCompatActivity(), TickingmadListener {
             R.id.item_add -> {
                 val launcherIntent = Intent(this, TickingmadActivity::class.java)
                 refreshIntentLauncher.launch(launcherIntent)
+            }
+            R.id.item_map -> {
+                val launcherIntent = Intent(this, TickingmadMapsActivity::class.java)
+                mapIntentLauncher.launch(launcherIntent)
             }
         }
         return super.onOptionsItemSelected(item)

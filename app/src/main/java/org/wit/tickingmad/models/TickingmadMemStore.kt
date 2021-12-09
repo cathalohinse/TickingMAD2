@@ -47,4 +47,9 @@ class TickingmadMemStore : TickingmadStore {
     private fun logAll() {
         tickingmads.forEach { i("$it") }
     }
+
+    override fun findById(id:Long) : TickingmadModel? {
+        val foundTickingmad: TickingmadModel? = tickingmads.find { it.id == id }
+        return foundTickingmad
+    }
 }
