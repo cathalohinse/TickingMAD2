@@ -5,6 +5,7 @@
     <string name="hint_tickDescription">Description</string>
     <string name="menu_addTick">Add</string>
     <string name="menu_cancelTick">Cancel</string>
+    <string name="menu_saveTick">Save</string>
     <string name="enter_tickTitle"> Please enter a Tick Title </string>
     <string name="save_tick"> Save Tick </string>
     <string name="button_addImage"> Add Image </string>
