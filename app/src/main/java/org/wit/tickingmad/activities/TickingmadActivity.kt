@@ -106,9 +106,16 @@ class TickingmadActivity : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
+    //override fun onOptionsItemSelected(item: MenuItem?): Boolean {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.item_cancel -> { finish() }
+        when (item?.itemId) {
+            R.id.item_delete -> {
+                app.tickingmads.delete(tickingmad)
+                finish()
+            }
+            R.id.item_cancel -> {
+                finish()
+            }
         }
         return super.onOptionsItemSelected(item)
     }

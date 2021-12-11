@@ -5,4 +5,5 @@ interface TickingmadStore {
     fun create(tickingmad: TickingmadModel)
     fun update(tickingmad: TickingmadModel)
     fun delete(tickingmad: TickingmadModel)
+    fun findById(id:Long) : TickingmadModel?
 }

@@ -17,7 +17,8 @@ class MainApp : Application() {
     override fun onCreate() {
         super.onCreate()
         Timber.plant(Timber.DebugTree())
-        tickingmads = TickingmadJSONStore(applicationContext)
+        //tickingmads = TickingmadJSONStore(applicationContext)
+        tickingmads = TickingmadMemStore()
         i("Tickingmad started")
     }
 }

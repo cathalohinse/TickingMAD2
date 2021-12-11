@@ -36,15 +36,20 @@ class TickingmadMemStore : TickingmadStore {
     }
 
     override fun delete(tickingmad: TickingmadModel) {
-        var foundTickingmad: TickingmadModel? = tickingmads.find { p -> p.id == tickingmad.id }
-        if (foundTickingmad != null) {
+        //var foundTickingmad: TickingmadModel? = tickingmads.find { p -> p.id == tickingmad.id }
+        //if (foundTickingmad != null) {
             tickingmads.remove(tickingmad)
 
-            logAll()
-        }
+            //logAll()
+        //}
     }
 
     private fun logAll() {
         tickingmads.forEach { i("$it") }
+    }
+
+    override fun findById(id:Long) : TickingmadModel? {
+        val foundTickingmad: TickingmadModel? = tickingmads.find { it.id == id }
+        return foundTickingmad
     }
 }
