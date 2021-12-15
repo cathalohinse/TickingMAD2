@@ -40,7 +40,7 @@
             android:name=".activities.Home"
             android:exported="true" />
         <activity
-            android:name=".activities.TickingmadMapsActivity"
+            android:name=".views.maps.TickingmadMapsView"
             android:exported="true"
             android:label="@string/title_activity_tickingmad_maps"
             android:theme="@style/Theme.TickingMAD.NoActionBar" />
@@ -54,6 +54,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".activities.Login"
+            android:exported="true">
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+        </activity>
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -67,11 +77,11 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".activities.MapActivity"
+            android:name=".views.editlocation.EditLocationView"
             android:exported="true"
             android:label="@string/title_activity_map" />
         <activity
-            android:name=".activities.TickingmadListActivity"
+            android:name=".views.tickingmadlist.TickingmadListView"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -79,7 +89,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.TickingmadActivity" />
+        <activity android:name=".views.tickingmad.TickingmadView" />
     </application>
 
 </manifest>
