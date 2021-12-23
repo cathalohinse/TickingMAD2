@@ -20,11 +20,7 @@
         <activity
             android:name=".activities.Home"
             android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".views.maps.TickingmadMapsView"
@@ -35,7 +31,11 @@
             android:name=".activities.SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.TickingMAD">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".activities.Login"
             android:exported="true">
@@ -60,11 +60,7 @@
         <activity
             android:name=".views.tickingmadlist.TickingmadListView"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".views.tickingmad.TickingmadView" />
     </application>
