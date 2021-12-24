@@ -12,6 +12,7 @@ interface TickingmadListener {
 }
 
 class TickingmadAdapter constructor(private var tickingmads: List<TickingmadModel>, private val listener: TickingmadListener) :
+//class TickingmadAdapter constructor(private var tickingmads: List<TickingmadModel>) :
     RecyclerView.Adapter<TickingmadAdapter.MainHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
@@ -23,6 +24,7 @@ class TickingmadAdapter constructor(private var tickingmads: List<TickingmadMode
     override fun onBindViewHolder(holder: MainHolder, position: Int) {
         val tickingmad = tickingmads[holder.adapterPosition]
         holder.bind(tickingmad, listener)
+        //holder.bind(tickingmad)
     }
 
     override fun getItemCount(): Int = tickingmads.size
@@ -31,6 +33,7 @@ class TickingmadAdapter constructor(private var tickingmads: List<TickingmadMode
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(tickingmad: TickingmadModel, listener: TickingmadListener) {
+        //fun bind(tickingmad: TickingmadModel) {
             binding.tickTitle.text = tickingmad.title
             binding.tickDescription.text = tickingmad.description
             Picasso.get().load(tickingmad.image).resize(200,200).into(binding.imageIcon)

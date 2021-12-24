@@ -5,7 +5,7 @@ import org.wit.tickingmad.models.TickingmadMemStore
 import org.wit.tickingmad.models.TickingmadStore
 
 import org.wit.tickingmad.models.TickingmadJSONStore
-//import org.wit.tickingmad.models.TickingmadModel
+import org.wit.tickingmad.models.TickingmadModel
 import timber.log.Timber
 import timber.log.Timber.i
 

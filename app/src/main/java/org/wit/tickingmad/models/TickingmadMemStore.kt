@@ -1,6 +1,7 @@
 package org.wit.tickingmad.models
 
 import timber.log.Timber.i
+//import timber.log.Timber
 
 var lastId = 0L
 
@@ -47,6 +48,11 @@ class TickingmadMemStore : TickingmadStore {
     private fun logAll() {
         tickingmads.forEach { i("$it") }
     }
+
+    /*fun logAll() {
+        Timber.v("** Donations List **")
+        tickingmads.forEach { Timber.v("Donate ${it}") }
+    }*/
 
     override fun findById(id:Long) : TickingmadModel? {
         val foundTickingmad: TickingmadModel? = tickingmads.find { it.id == id }
