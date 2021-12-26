@@ -50,7 +50,7 @@ class TickingmadMemStore : TickingmadStore {
     }
 
     /*fun logAll() {
-        Timber.v("** Donations List **")
+        Timber.v("** Tickingmads List **")
         tickingmads.forEach { Timber.v("Donate ${it}") }
     }*/
 
