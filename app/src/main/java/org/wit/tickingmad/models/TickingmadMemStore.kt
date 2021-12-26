@@ -26,6 +26,8 @@ class TickingmadMemStore : TickingmadStore {
     override fun update(tickingmad: TickingmadModel) {
         val foundTickingmad: TickingmadModel? = tickingmads.find { p -> p.id == tickingmad.id }
         if (foundTickingmad != null) {
+            foundTickingmad._id = tickingmad._id
+            foundTickingmad.email = tickingmad.email
             foundTickingmad.title = tickingmad.title
             foundTickingmad.description = tickingmad.description
             foundTickingmad.image = tickingmad.image
