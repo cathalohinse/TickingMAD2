@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TickingMAD</string>
+    <string name="app_name">TickingMAD V2</string>
     <string name="button_addTick">Add Tick</string>
     <string name="hint_tickTitle">Tick Title</string>
     <string name="hint_tickDescription">Description</string>
@@ -31,6 +31,7 @@
     <string name="signed_out">Signed Out</string>
     <string name="token_null">Token: null</string>
     <string name="hint_email">Email</string>
+    <string name="hint_id">_id</string>
     <string name="hint_password">Password</string>
     <string name="desc_firebase_lockup">Firebase logo and name</string>
     <string name="auth_failed">Authentication failed</string>

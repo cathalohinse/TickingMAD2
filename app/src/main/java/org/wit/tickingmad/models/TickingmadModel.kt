@@ -6,7 +6,9 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class TickingmadModel(var id: Long = 0,
-                          var title: String = "",
+                           var _id: String = "N/A",
+                           var email: String = "joe@bloggs.com",
+                           var title: String = "",
                           var description: String = "",
                           var image: Uri = Uri.EMPTY,
                           var lat : Double = 0.0,

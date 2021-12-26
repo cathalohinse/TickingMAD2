@@ -3,6 +3,7 @@ package org.wit.tickingmad.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
 import com.squareup.picasso.Picasso
 import org.wit.tickingmad.databinding.CardTickingmadBinding
 import org.wit.tickingmad.models.TickingmadModel
@@ -36,6 +37,9 @@ class TickingmadAdapter constructor(private var tickingmads: List<TickingmadMode
         //fun bind(tickingmad: TickingmadModel) {
             binding.tickTitle.text = tickingmad.title
             binding.tickDescription.text = tickingmad.description
+
+            //binding.tickEmail.text = auth.currentUser?.email.toString()
+            binding.tickEmail.text = tickingmad.email
             Picasso.get().load(tickingmad.image).resize(200,200).into(binding.imageIcon)
             binding.root.setOnClickListener { listener.onTickingmadClick(tickingmad)}
         }
