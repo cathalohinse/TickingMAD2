@@ -37,6 +37,7 @@ class TickingmadAdapter constructor(private var tickingmads: List<TickingmadMode
         //fun bind(tickingmad: TickingmadModel) {
             binding.tickTitle.text = tickingmad.title
             binding.tickDescription.text = tickingmad.description
+            binding.tickCounty.text = tickingmad.county
 
             //binding.tickEmail.text = auth.currentUser?.email.toString()
             binding.tickEmail.text = tickingmad.email

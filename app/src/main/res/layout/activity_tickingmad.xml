@@ -48,7 +48,6 @@
                     android:layout_margin="8dp"
                     android:autofillHints=""
                     android:hint="@string/hint_tickTitle"
-                    android:textColorHint="@color/black"
                     android:inputType="text"
                     android:maxLength="25"
                     android:maxLines="1"
@@ -74,7 +73,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
-                    android:hint="@string/hint_email"
                     android:inputType="text"
                     android:maxLength="25"
                     android:maxLines="1"
@@ -83,33 +81,21 @@
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/tick_id"
-                    android:layout_width="match_parent"
+                    android:id="@+id/tickCounty"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:hint="@string/hint_id"
-                    android:inputType="text"
-                    android:maxLength="25"
-                    android:maxLines="1"
-                    android:padding="8dp"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="14sp" />
+                    android:textSize="25dp"
+                    android:hint="@string/hint_tickCounty"
+                    android:padding="20dp"
+                    android:visibility="invisible"
+                    tools:context=".views.tickingmad.TickingmadView"/>
 
-                <TextView
-                    android:id="@+id/detail"
-                    android:layout_width="match_parent"
+                <Spinner
+                    android:id="@+id/tickSpinner"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:hint="@string/hint_email"
-                    android:inputType="text"
-                    android:maxLength="25"
-                    android:maxLines="1"
-                    android:padding="8dp"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="14sp"
-
-                    style="@style/ThemeOverlay.MyTextDetail"
-                    tools:text="Firebase User ID: 123456789abc"/>
+                    tools:context=".views.tickingmad.TickingmadView"/>
 
                 <Button
                     android:id="@+id/chooseImage"
@@ -141,19 +127,6 @@
                     android:text="@string/button_tickLocation"
                     android:textColor="@color/colorPrimary"
                     android:textSize="16sp"/>
-
-                <Button
-                    android:id="@+id/btnAdd"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:background="@color/colorAccent"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:stateListAnimator="@null"
-                    android:text="@string/button_addTick"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="16sp" />
 
                 <Button
                     android:id="@+id/btnDelete"
@@ -190,6 +163,5 @@
 
             </LinearLayout>
         </ScrollView>
-
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
