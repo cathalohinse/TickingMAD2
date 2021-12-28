@@ -53,4 +53,7 @@
 
     <string name="action_splash">Splash</string>
     <string name="action_tickingmadList">TickingmadList</string>
+
+    <string name="tickSpinner">CountyTitle</string>
+    <string name="hint_tickCounty">County:</string>
 </resources>
