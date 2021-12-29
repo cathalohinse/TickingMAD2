@@ -56,4 +56,7 @@
 
     <string name="tickSpinner">CountyTitle</string>
     <string name="hint_tickCounty">County:</string>
+
+    <string name="tickFavourite">Favourite</string>
+    <string name="icon_favourite">Favourite Icon</string>
 </resources>
