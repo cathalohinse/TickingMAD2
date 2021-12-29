@@ -97,6 +97,16 @@
                     android:textColor="@color/colorPrimaryDark"
                     tools:context=".views.tickingmad.TickingmadView"/>
 
+                <ToggleButton
+                    android:id="@+id/tickFavourite"
+                    android:layout_width="300dp"
+                    android:layout_height="40dp"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:checked="false"
+                    android:textOff="Add to Favourites"
+                    android:textOn="Remove from Favourites"/>
+
                 <Button
                     android:id="@+id/chooseImage"
                     android:layout_width="match_parent"

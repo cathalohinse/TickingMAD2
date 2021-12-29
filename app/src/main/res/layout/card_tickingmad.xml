@@ -76,5 +76,33 @@
             app:layout_constraintTop_toBottomOf="@id/tickCounty"
             tools:text="Email" />
 
+        <TextView
+            android:id="@+id/tickFavourite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textAlignment="viewStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.056"
+            app:layout_constraintStart_toEndOf="@+id/imageIcon"
+            app:layout_constraintTop_toBottomOf="@id/tickEmail"
+            tools:text="Favourite Status"
+            android:src="@android:drawable/btn_star_big_on"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/item_favourite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@android:drawable/ic_menu_add"
+            android:title="@string/icon_favourite"
+            app:layout_constraintStart_toEndOf="@+id/tickDescription"
+            app:layout_constraintTop_toTopOf="@+id/tickDescription"
+            app:showAsAction="always"
+            android:src="@android:drawable/btn_star_big_on"
+            android:fillColor="@color/purple_700"
+            android:visibility="invisible"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.cardview.widget.CardView>

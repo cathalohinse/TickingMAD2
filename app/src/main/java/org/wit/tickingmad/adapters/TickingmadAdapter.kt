@@ -38,6 +38,9 @@ class TickingmadAdapter constructor(private var tickingmads: List<TickingmadMode
             binding.tickTitle.text = tickingmad.title
             binding.tickDescription.text = tickingmad.description
             binding.tickCounty.text = tickingmad.county
+            //binding.tickFavourite.text.toString().toBoolean(); Boolean; tickingmad.favourite
+            binding.tickFavourite.text = tickingmad.favourite.toString()
+            //binding.tickFavourite.isChecked.toString().toBoolean() = tickingmad.favourite
 
             //binding.tickEmail.text = auth.currentUser?.email.toString()
             binding.tickEmail.text = tickingmad.email

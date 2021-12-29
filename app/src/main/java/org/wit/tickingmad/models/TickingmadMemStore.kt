@@ -31,6 +31,7 @@ class TickingmadMemStore : TickingmadStore {
             foundTickingmad.title = tickingmad.title
             foundTickingmad.description = tickingmad.description
             foundTickingmad.county = tickingmad.county
+            foundTickingmad.favourite = tickingmad.favourite
             foundTickingmad.image = tickingmad.image
             foundTickingmad.lat = tickingmad.lat
             foundTickingmad.lng = tickingmad.lng
