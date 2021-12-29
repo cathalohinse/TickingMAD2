@@ -1,6 +1,7 @@
 package org.wit.tickingmad.models
 
 import timber.log.Timber.i
+//import timber.log.Timber
 
 var lastId = 0L
 
@@ -23,16 +24,42 @@ class TickingmadMemStore : TickingmadStore {
     }
 
     override fun update(tickingmad: TickingmadModel) {
-        var foundTickingmad: TickingmadModel? = tickingmads.find { p -> p.id == tickingmad.id }
+        val foundTickingmad: TickingmadModel? = tickingmads.find { p -> p.id == tickingmad.id }
         if (foundTickingmad != null) {
+            foundTickingmad._id = tickingmad._id
+            foundTickingmad.email = tickingmad.email
             foundTickingmad.title = tickingmad.title
             foundTickingmad.description = tickingmad.description
+            foundTickingmad.county = tickingmad.county
+            foundTickingmad.favourite = tickingmad.favourite
             foundTickingmad.image = tickingmad.image
+            foundTickingmad.lat = tickingmad.lat
+            foundTickingmad.lng = tickingmad.lng
+            foundTickingmad.zoom = tickingmad.zoom
             logAll()
         }
     }
 
+    override fun delete(tickingmad: TickingmadModel) {
+        //var foundTickingmad: TickingmadModel? = tickingmads.find { p -> p.id == tickingmad.id }
+        //if (foundTickingmad != null) {
+            tickingmads.remove(tickingmad)
+
+            //logAll()
+        //}
+    }
+
     private fun logAll() {
         tickingmads.forEach { i("$it") }
+    }
+
+    /*fun logAll() {
+        Timber.v("** Tickingmads List **")
+        tickingmads.forEach { Timber.v("Donate ${it}") }
+    }*/
+
+    override fun findById(id:Long) : TickingmadModel? {
+        val foundTickingmad: TickingmadModel? = tickingmads.find { it.id == id }
+        return foundTickingmad
     }
 }
