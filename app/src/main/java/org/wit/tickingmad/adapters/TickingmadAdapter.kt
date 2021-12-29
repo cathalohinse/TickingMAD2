@@ -1,7 +1,9 @@
 package org.wit.tickingmad.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.ToggleButton
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.squareup.picasso.Picasso
@@ -38,13 +40,21 @@ class TickingmadAdapter constructor(private var tickingmads: List<TickingmadMode
             binding.tickTitle.text = tickingmad.title
             binding.tickDescription.text = tickingmad.description
             binding.tickCounty.text = tickingmad.county
-            //binding.tickFavourite.text.toString().toBoolean(); Boolean; tickingmad.favourite
-            binding.tickFavourite.text = tickingmad.favourite.toString()
-            //binding.tickFavourite.isChecked.toString().toBoolean() = tickingmad.favourite
+
+            if(tickingmad.favourite) {
+                //binding.tickFavourite.text = "Favourite"
+                //binding.tickFavourite.visibility = View.VISIBLE
+                binding.itemFavourite.visibility = View.VISIBLE
+            }
+            else {
+                //binding.tickFavourite.text = ""
+                //binding.tickFavourite.visibility = View.GONE
+                binding.itemFavourite.visibility = View.GONE
+            }
 
             //binding.tickEmail.text = auth.currentUser?.email.toString()
             binding.tickEmail.text = tickingmad.email
-            Picasso.get().load(tickingmad.image).resize(200,200).into(binding.imageIcon)
+            Picasso.get().load(tickingmad.image).resize(200,200).into(binding.tickImage)
             binding.root.setOnClickListener { listener.onTickingmadClick(tickingmad)}
         }
     }
