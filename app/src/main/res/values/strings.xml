@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TickingMAD V2</string>
+    <string name="app_name">TickingMAD 2</string>
     <string name="button_addTick">Add Tick</string>
     <string name="hint_tickTitle">Tick Title</string>
     <string name="hint_tickDescription">Description</string>

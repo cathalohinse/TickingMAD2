@@ -106,15 +106,15 @@
                     android:focusableInTouchMode="false"
                     android:checked="false"
                     android:layout_margin="16dp"
-                    android:background="@color/colorAccent"
+                    android:background="?colorOnPrimary"
                     android:paddingBottom="8dp"
                     android:paddingTop="8dp"
                     android:textColor="@color/colorPrimary"
                     android:textSize="16sp"
                     android:textOff="Add to Favourites"
                     android:textOn="Remove from Favourites"
-                    android:drawableLeft="@android:drawable/btn_star_big_on"
-                    android:drawableRight="@android:drawable/btn_star_big_on"/>
+                    android:drawableStart="@android:drawable/btn_star_big_on"
+                    android:drawableEnd="@android:drawable/btn_star_big_on"/>
 
                 <Button
                     android:id="@+id/chooseImage"
