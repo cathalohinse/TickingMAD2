@@ -11,4 +11,6 @@
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#FF3700B3</color>
+    <color name="darkSurface">#121212</color>
+    <color name="darkOverlay">#1F1B24</color>
 </resources>
