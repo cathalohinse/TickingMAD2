@@ -56,13 +56,17 @@
         <activity
             android:name=".views.editlocation.EditLocationView"
             android:exported="true"
-            android:label="@string/title_activity_map" />
+            android:label="@string/title_activity_map"
+            android:theme="@style/Theme.TickingMAD.NoActionBar" />
         <activity
             android:name=".views.tickingmadlist.TickingmadListView"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.TickingMAD.NoActionBar" >
 
         </activity>
-        <activity android:name=".views.tickingmad.TickingmadView" />
+        <activity
+            android:name=".views.tickingmad.TickingmadView"
+            android:theme="@style/Theme.TickingMAD.NoActionBar" />
     </application>
 
 </manifest>
