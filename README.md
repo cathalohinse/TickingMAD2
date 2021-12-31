@@ -25,5 +25,5 @@ This application incorporates the following:
 * YouTube
 
 ### Links
+* [YouTube](https://www.youtube.com/watch?v=hGtfoLOmDJM)
 * ['TickingMAD2' github repository](https://github.com/cathalohinse/TickingMAD2)
-* [YouTube] (https://www.youtube.com/watch?v=hGtfoLOmDJM)
